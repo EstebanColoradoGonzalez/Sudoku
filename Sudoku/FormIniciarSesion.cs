@@ -21,15 +21,26 @@ namespace Sudoku
 
         private void FormIniciarSesion_Load(object sender, EventArgs e)
         {
-            InciarSesion();
+            
         }
 
         Jugador jugador = new Jugador();
 
+        private void Escribir(Jugador jugador)
+        {
+            string fileName = "Usuarios.txt";
+            StreamWriter writer = File.AppendText(fileName);
+            writer.WriteLine("{0}", jugador.Getusuario());
+            //writer.Close();
+        }
+
         private void InciarSesion()
         {
+            int contador = 0;
             if (textBoxUsuario.Text != "")
             {
+                jugador.Setusuario(textBoxUsuario.Text.ToLower());
+                Escribir(jugador);
                 string fileName = "Usuarios.txt";
                 StreamReader reader = File.OpenText(fileName);
                 int finalizar = 0;
@@ -40,36 +51,36 @@ namespace Sudoku
 
                     string[] datos = lineaActual.Split('&');
 
-                    if (textBoxUsuario.Text != datos[0])
+                    if (datos[0] == jugador.Getusuario())
                     {
-                        jugador.Setusuario(textBoxUsuario.Text);
-
-                        StreamWriter writer = File.AppendText(fileName);
-
-                        writer.WriteLine("{0}", jugador.Getusuario());
-                        writer.Close();
-                    }
-                    else
-                    {
-                        jugador.Setusuario(textBoxUsuario.Text.ToLower());
-                        int contador = 0;
-
-                        if (datos[0] == jugador.Getusuario())
-                        {
-                            reader.Close();
-                            FormSudoku miforma = new FormSudoku();
-                            miforma.ShowDialog();
-                            finalizar++;
-                        }
-
                         reader.Close();
+                        FormSudoku miforma = new FormSudoku();
+                        miforma.ShowDialog();
+                        finalizar++;
                     }
+
+                    reader.Close();
                 }
             }
             else
             {
-                MessageBox.Show("Debe Escribir un Usuario", "Informacion del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                contador++;
+                if (contador == 0)
+                {
+                    MessageBox.Show("Debe Escribir un Usuario", "Informacion del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                    
             }
+        }
+
+        private void textBoxUsuario_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonIniciarJuego_Click(object sender, EventArgs e)
+        {
+            InciarSesion();
         }
     }
 }

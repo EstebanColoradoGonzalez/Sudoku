@@ -45,7 +45,7 @@ namespace Sudoku
             this.logoSudoku.BackColor = System.Drawing.Color.Transparent;
             this.logoSudoku.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("logoSudoku.BackgroundImage")));
             this.logoSudoku.Location = new System.Drawing.Point(318, 13);
-            this.logoSudoku.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.logoSudoku.Margin = new System.Windows.Forms.Padding(4);
             this.logoSudoku.Name = "logoSudoku";
             this.logoSudoku.Size = new System.Drawing.Size(340, 140);
             this.logoSudoku.TabIndex = 0;
@@ -71,6 +71,7 @@ namespace Sudoku
             this.textBoxUsuario.Name = "textBoxUsuario";
             this.textBoxUsuario.Size = new System.Drawing.Size(222, 31);
             this.textBoxUsuario.TabIndex = 2;
+            this.textBoxUsuario.TextChanged += new System.EventHandler(this.textBoxUsuario_TextChanged);
             // 
             // buttonIniciarJuego
             // 
@@ -83,6 +84,7 @@ namespace Sudoku
             this.buttonIniciarJuego.TabIndex = 3;
             this.buttonIniciarJuego.Text = "Iniciar Juego";
             this.buttonIniciarJuego.UseVisualStyleBackColor = false;
+            this.buttonIniciarJuego.Click += new System.EventHandler(this.buttonIniciarJuego_Click);
             // 
             // labelCreated
             // 
@@ -132,7 +134,7 @@ namespace Sudoku
             this.Controls.Add(this.logoSudoku);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormIniciarSesion";
             this.Text = "Sudoku";
             this.Load += new System.EventHandler(this.FormIniciarSesion_Load);
