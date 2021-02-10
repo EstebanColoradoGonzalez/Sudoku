@@ -80,6 +80,12 @@ namespace Sudoku
                 contador = 30;
             else if (modoMuyDificil.Checked)
                 contador = 15;
+            else if (modoFacil.Checked)
+                contador = 60;
+            else if (modoMuyFacil.Checked)
+                contador = 75;
+            else if (modoExperto.Checked)
+                contador = 5;
 
             mostrarValoresAleatorios(contador);
         }
@@ -182,6 +188,7 @@ namespace Sudoku
             {
                 oSW.Reset();
                 buttonFinalizar.PerformClick();
+                buttonResultado.PerformClick();
             }
         }
 
@@ -244,18 +251,7 @@ namespace Sudoku
 
         private void buttonResultado_Click(object sender, EventArgs e)
         {
-            cargarValores();
-
-            var contador = 0;
-
-            if (modoNormal.Checked)
-                contador = 81;
-            else if (modoDificil.Checked)
-                contador = 81;
-            else if (modoMuyDificil.Checked)
-                contador = 81;
-
-            mostrarValoresAleatorios(contador);
+            mostrarValoresAleatorios(700);
         }
     }
 }

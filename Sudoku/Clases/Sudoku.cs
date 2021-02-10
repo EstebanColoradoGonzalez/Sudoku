@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -14,10 +15,16 @@ namespace Sudoku.Clases
         private string modalidadJuego;
         private bool estadoJuego;
         private string duracionJuego;
+        private ArrayList jugadores = new ArrayList();
 
         public string GetfechaJuego()
         {
             return fechaJuego;
+        }
+
+        public ArrayList Getjugadores()
+        {
+            return jugadores;
         }
 
         public string GetmodalidadJuego()
@@ -38,6 +45,11 @@ namespace Sudoku.Clases
         public void SetfechaJuego(string newFechaJuego)
         {
             fechaJuego = newFechaJuego;
+        }
+
+        public void Setjugadores(ArrayList newJugadores)
+        {
+            jugadores = newJugadores;
         }
 
         public void SetmodalidadJuego(string newModalidadJuego)
