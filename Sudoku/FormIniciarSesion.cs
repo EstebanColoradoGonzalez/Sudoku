@@ -26,12 +26,12 @@ namespace Sudoku
 
         Jugador jugador = new Jugador();
 
-        private void Escribir(Jugador jugador)
+        private void Escribir(Jugador jugador, string fileName)
         {
-            string fileName = "Usuarios.txt";
+            
             StreamWriter writer = File.AppendText(fileName);
             writer.WriteLine("{0}", jugador.Getusuario());
-            //writer.Close();
+            writer.Close();
         }
 
         private void InciarSesion()
@@ -39,27 +39,41 @@ namespace Sudoku
             int contador = 0;
             if (textBoxUsuario.Text != "")
             {
-                jugador.Setusuario(textBoxUsuario.Text.ToLower());
-                Escribir(jugador);
                 string fileName = "Usuarios.txt";
+                jugador.Setusuario(textBoxUsuario.Text.ToLower());
+
                 StreamReader reader = File.OpenText(fileName);
+                string lineaActual = reader.ReadLine();
+
+                string[] datos = lineaActual.Split('&');
+
                 int finalizar = 0;
 
-                while (finalizar == 0 && !reader.EndOfStream)
+                if(jugador.Getusuario() != datos[0])
                 {
-                    string lineaActual = reader.ReadLine();
-
-                    string[] datos = lineaActual.Split('&');
-
-                    if (datos[0] == jugador.Getusuario())
-                    {
-                        reader.Close();
-                        FormSudoku miforma = new FormSudoku();
-                        miforma.ShowDialog();
-                        finalizar++;
-                    }
-
                     reader.Close();
+                    StreamWriter writer = File.AppendText(fileName);
+                    writer.WriteLine("{0}", jugador.Getusuario());
+                    FormSudoku miforma = new FormSudoku();
+                    miforma.ShowDialog();
+                    writer.Close();
+
+                }
+                else
+                {
+                    while (finalizar == 0 && !reader.EndOfStream)
+                    {
+
+                        if (datos[0] == jugador.Getusuario())
+                        {
+                            reader.Close();
+                            FormSudoku miforma = new FormSudoku();
+                            miforma.ShowDialog();
+                            finalizar++;
+                        }
+
+                        reader.Close();
+                    }
                 }
             }
             else
@@ -69,7 +83,6 @@ namespace Sudoku
                 {
                     MessageBox.Show("Debe Escribir un Usuario", "Informacion del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                    
             }
         }
 
