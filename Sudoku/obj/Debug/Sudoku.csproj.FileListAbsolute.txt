@@ -1,0 +1,10 @@
+D:\Archivos de Programa\Esteban\Personal\Repositorios\Repositorios de Visual Studio\Sudoku\Sudoku\bin\Debug\Sudoku.exe.config
+D:\Archivos de Programa\Esteban\Personal\Repositorios\Repositorios de Visual Studio\Sudoku\Sudoku\bin\Debug\Sudoku.exe
+D:\Archivos de Programa\Esteban\Personal\Repositorios\Repositorios de Visual Studio\Sudoku\Sudoku\bin\Debug\Sudoku.pdb
+D:\Archivos de Programa\Esteban\Personal\Repositorios\Repositorios de Visual Studio\Sudoku\Sudoku\obj\Debug\Sudoku.csprojAssemblyReference.cache
+D:\Archivos de Programa\Esteban\Personal\Repositorios\Repositorios de Visual Studio\Sudoku\Sudoku\obj\Debug\Sudoku.FormSudoku.resources
+D:\Archivos de Programa\Esteban\Personal\Repositorios\Repositorios de Visual Studio\Sudoku\Sudoku\obj\Debug\Sudoku.Properties.Resources.resources
+D:\Archivos de Programa\Esteban\Personal\Repositorios\Repositorios de Visual Studio\Sudoku\Sudoku\obj\Debug\Sudoku.csproj.GenerateResource.cache
+D:\Archivos de Programa\Esteban\Personal\Repositorios\Repositorios de Visual Studio\Sudoku\Sudoku\obj\Debug\Sudoku.csproj.CoreCompileInputs.cache
+D:\Archivos de Programa\Esteban\Personal\Repositorios\Repositorios de Visual Studio\Sudoku\Sudoku\obj\Debug\Sudoku.exe
+D:\Archivos de Programa\Esteban\Personal\Repositorios\Repositorios de Visual Studio\Sudoku\Sudoku\obj\Debug\Sudoku.pdb
