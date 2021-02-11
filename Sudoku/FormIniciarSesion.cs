@@ -26,14 +26,6 @@ namespace Sudoku
 
         Jugador jugador = Jugador.Getinstancia();
 
-        private void Escribir(Jugador jugador, string fileName)
-        {
-            
-            StreamWriter writer = File.AppendText(fileName);
-            writer.WriteLine("{0}", jugador.Usuario);
-            writer.Close();
-        }
-
         private void InciarSesion()
         {
             int contador = 0;

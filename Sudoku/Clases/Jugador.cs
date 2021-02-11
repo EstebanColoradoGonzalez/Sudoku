@@ -21,7 +21,7 @@ namespace Sudoku.Clases
         }
 
         private string usuario;
-        private double[] ranking = new double[6];
+        private string[] datos = new string[4];
 
         public string Usuario
         {
@@ -33,13 +33,12 @@ namespace Sudoku.Clases
             }
         }
 
-        public double[] Ranking
+        public string[] Datos
         {
-            get { return ranking; }
+            get { return datos; }
             set
             {
-                this.ranking = value;
-
+                this.datos = value;
             }
         }
 

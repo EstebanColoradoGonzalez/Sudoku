@@ -33,7 +33,9 @@ namespace Sudoku
             this.labelU = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.labelUsuario = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // labelU
@@ -64,12 +66,22 @@ namespace Sudoku
             this.labelUsuario.TabIndex = 2;
             this.labelUsuario.Text = "Usuario";
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 105);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(351, 376);
+            this.dataGridView1.TabIndex = 3;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
             // FormHistorial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(375, 493);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.labelUsuario);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.labelU);
@@ -79,6 +91,7 @@ namespace Sudoku
             this.Text = "Historial de Partidas";
             this.Load += new System.EventHandler(this.FormDatos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -89,5 +102,6 @@ namespace Sudoku
         private System.Windows.Forms.Label labelU;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label labelUsuario;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

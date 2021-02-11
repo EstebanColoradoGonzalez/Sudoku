@@ -29,6 +29,14 @@ namespace Sudoku
 
         SudokuCeldas[,] celdas = new SudokuCeldas[9, 9];
 
+        private void cargarDatos(string[] datos)
+        {
+            jugador.Usuario = datos[0];
+            jugador.Datos[0] = datos[1];
+        }
+
+
+
         private void crearCeldas()
         {
             for (int i = 0; i < 9; i++)
@@ -70,6 +78,7 @@ namespace Sudoku
                     celda.Text = value.ToString();
 
                 celda.ForeColor = SystemColors.ControlDarkDark;
+                marcarCasillasMalas();
             }
         }
 
@@ -77,7 +86,7 @@ namespace Sudoku
         {
             cargarValores();
 
-            var contador = 0;
+            int contador = 0;
 
             if (modoNormal.Checked)
                 contador = 45;
@@ -88,7 +97,7 @@ namespace Sudoku
             else if (modoFacil.Checked)
                 contador = 60;
             else if (modoMuyFacil.Checked)
-                contador = 75;
+                contador = 70;
             else if (modoExperto.Checked)
                 contador = 5;
 
@@ -220,6 +229,59 @@ namespace Sudoku
         private void buttonJugarSinT_Click(object sender, EventArgs e)
         {
             IniciarNuevoJuego();
+            escrbirFecha();
+        }
+
+        private void escrbirFecha()
+        {
+            sudoku.FechaJuego = dateTimePicker1.Value.ToString();
+            jugador.Datos[0] = sudoku.FechaJuego;
+            string fileName = "Usuarios.txt";
+            string fileCopia = "CopiaUsuarios.txt";
+            StreamReader reader = new StreamReader(fileName);
+            StreamWriter writer = File.AppendText(fileCopia);
+
+            while (!reader.EndOfStream)
+            {
+                string lineaActual = reader.ReadLine();
+                string[] datos = lineaActual.Split('&');
+
+                if(datos[0] == jugador.Usuario)
+                {
+                    writer.WriteLine("{0}&{1}", jugador.Usuario, jugador.Datos[0]);
+                    datos[0] = jugador.Usuario;
+                    //datos[1] = jugador.Datos[0];
+                    //cargarDatos(datos);
+                }
+                else
+                {
+                    writer.WriteLine(lineaActual);
+                }
+                
+            }
+
+            reader.Close();
+            writer.Close();
+
+            File.Replace(fileCopia, fileName, null, true);
+        }
+
+        private void marcarCasillasMalas()
+        {
+            var celdasIncorrectas = new List<SudokuCeldas>();
+
+            foreach (var celda in celdas)
+            {
+                if (!string.Equals(celda.valor.ToString(), celda.Text))
+                {
+                    celdasIncorrectas.Add(celda);
+                }
+            }
+
+            if (celdasIncorrectas.Any())
+            {
+                celdasIncorrectas.ForEach(x => x.ForeColor = Color.Red);
+            }
         }
 
         private void buttonFinalizar_Click(object sender, EventArgs e)
@@ -328,6 +390,11 @@ namespace Sudoku
             modoDificil.Checked = false;
             modoMuyDificil.Checked = false;
             modoExperto.Checked = true;
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

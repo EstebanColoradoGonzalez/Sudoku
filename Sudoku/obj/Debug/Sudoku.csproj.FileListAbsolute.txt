@@ -9,3 +9,4 @@ D:\Archivos de Programa\Esteban\Personal\Repositorios\Repositorios de Visual Stu
 D:\Archivos de Programa\Esteban\Personal\Repositorios\Repositorios de Visual Studio\Sudoku\Sudoku\obj\Debug\Sudoku.exe
 D:\Archivos de Programa\Esteban\Personal\Repositorios\Repositorios de Visual Studio\Sudoku\Sudoku\obj\Debug\Sudoku.pdb
 D:\Archivos de Programa\Esteban\Personal\Repositorios\Repositorios de Visual Studio\Sudoku\Sudoku\obj\Debug\Sudoku.FormIniciarSesion.resources
+D:\Archivos de Programa\Esteban\Personal\Repositorios\Repositorios de Visual Studio\Sudoku\Sudoku\obj\Debug\Sudoku.FormHistorial.resources

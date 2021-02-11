@@ -26,6 +26,7 @@ namespace Sudoku.Clases
         private string modalidadJuego;
         private bool estadoJuego;
         private string duracionJuego;
+        private double puntajeJuego;
 
         public string FechaJuego
         {
@@ -33,6 +34,16 @@ namespace Sudoku.Clases
             set
             {
                 this.fechaJuego = value;
+
+            }
+        }
+
+        public double PuntajeJuego
+        {
+            get { return puntajeJuego; }
+            set
+            {
+                this.puntajeJuego = value;
 
             }
         }
