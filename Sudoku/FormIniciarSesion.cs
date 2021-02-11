@@ -24,13 +24,13 @@ namespace Sudoku
             
         }
 
-        Jugador jugador = new Jugador();
+        Jugador jugador = Jugador.Getinstancia();
 
         private void Escribir(Jugador jugador, string fileName)
         {
             
             StreamWriter writer = File.AppendText(fileName);
-            writer.WriteLine("{0}", jugador.Getusuario());
+            writer.WriteLine("{0}", jugador.Usuario);
             writer.Close();
         }
 
@@ -40,7 +40,7 @@ namespace Sudoku
             if (textBoxUsuario.Text != "")
             {
                 string fileName = "Usuarios.txt";
-                jugador.Setusuario(textBoxUsuario.Text.ToLower());
+                jugador.Usuario = textBoxUsuario.Text.ToLower();
 
                 StreamReader reader = File.OpenText(fileName);
                 string lineaActual = reader.ReadLine();
@@ -49,11 +49,13 @@ namespace Sudoku
 
                 int finalizar = 0;
 
-                if(jugador.Getusuario() != datos[0])
+                if(jugador.Usuario != datos[0])
                 {
                     reader.Close();
                     StreamWriter writer = File.AppendText(fileName);
-                    writer.WriteLine("{0}", jugador.Getusuario());
+                    writer.WriteLine("{0}", jugador.Usuario);
+                    datos[0] = jugador.Usuario;
+                    cargarDatos(datos);
                     FormSudoku miforma = new FormSudoku();
                     miforma.ShowDialog();
                     writer.Close();
@@ -64,11 +66,12 @@ namespace Sudoku
                     while (finalizar == 0 && !reader.EndOfStream)
                     {
 
-                        if (datos[0] == jugador.Getusuario())
+                        if (datos[0] == jugador.Usuario)
                         {
                             reader.Close();
                             FormSudoku miforma = new FormSudoku();
                             miforma.ShowDialog();
+                            cargarDatos(datos);
                             finalizar++;
                         }
 
@@ -84,6 +87,11 @@ namespace Sudoku
                     MessageBox.Show("Debe Escribir un Usuario", "Informacion del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
+        }
+
+        private void cargarDatos(string[] datos)
+        {
+            jugador.Usuario = datos[0];
         }
 
         private void textBoxUsuario_TextChanged(object sender, EventArgs e)

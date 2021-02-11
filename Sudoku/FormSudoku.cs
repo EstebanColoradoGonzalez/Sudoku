@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
 using Sudoku.Clases;
+using System.IO;
 
 namespace Sudoku
 {
@@ -16,10 +17,14 @@ namespace Sudoku
     {
         Stopwatch oSW = new Stopwatch();
 
+        Jugador jugador = Jugador.Getinstancia();
+        SudokuClass sudoku = SudokuClass.Getinstancia();
+
         public FormSudoku()
         {
             InitializeComponent();
             crearCeldas();
+            labelUsuario.Text = jugador.Usuario;
         }
 
         SudokuCeldas[,] celdas = new SudokuCeldas[9, 9];
@@ -252,6 +257,83 @@ namespace Sudoku
         private void buttonResultado_Click(object sender, EventArgs e)
         {
             mostrarValoresAleatorios(700);
+        }
+
+        private void buttonDatos_Click(object sender, EventArgs e)
+        {
+            FormHistorial miforma = new FormHistorial();
+            miforma.ShowDialog();
+        }
+
+        private void buttonHistorial_Click(object sender, EventArgs e)
+        {
+            FormHistorial miforma = new FormHistorial();
+            miforma.ShowDialog();
+        }
+
+        private void menu1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void modoMuyFacil_Click(object sender, EventArgs e)
+        {
+            modoMuyFacil.Checked = true;
+            modoFacil.Checked = false;
+            modoNormal.Checked = false;
+            modoDificil.Checked = false;
+            modoMuyDificil.Checked = false;
+            modoExperto.Checked = false;
+        }
+
+        private void modoFacil_Click(object sender, EventArgs e)
+        {
+            modoMuyFacil.Checked = false;
+            modoFacil.Checked = true;
+            modoNormal.Checked = false;
+            modoDificil.Checked = false;
+            modoMuyDificil.Checked = false;
+            modoExperto.Checked = false;
+        }
+
+        private void modoNormal_Click(object sender, EventArgs e)
+        {
+            modoMuyFacil.Checked = false;
+            modoFacil.Checked = false;
+            modoNormal.Checked = true;
+            modoDificil.Checked = false;
+            modoMuyDificil.Checked = false;
+            modoExperto.Checked = false;
+        }
+
+        private void modoDificil_Click(object sender, EventArgs e)
+        {
+            modoMuyFacil.Checked = false;
+            modoFacil.Checked = false;
+            modoNormal.Checked = false;
+            modoDificil.Checked = true;
+            modoMuyDificil.Checked = false;
+            modoExperto.Checked = false;
+        }
+
+        private void modoMuyDificil_Click(object sender, EventArgs e)
+        {
+            modoMuyFacil.Checked = false;
+            modoFacil.Checked = false;
+            modoNormal.Checked = false;
+            modoDificil.Checked = false;
+            modoMuyDificil.Checked = true;
+            modoExperto.Checked = false;
+        }
+
+        private void modoExperto_Click(object sender, EventArgs e)
+        {
+            modoMuyFacil.Checked = false;
+            modoFacil.Checked = false;
+            modoNormal.Checked = false;
+            modoDificil.Checked = false;
+            modoMuyDificil.Checked = false;
+            modoExperto.Checked = true;
         }
     }
 }

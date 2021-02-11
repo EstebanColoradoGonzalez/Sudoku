@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sudoku.Clases;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,13 @@ namespace Sudoku
         public FormHistorial()
         {
             InitializeComponent();
+        }
+
+        SudokuClass sudoku = SudokuClass.Getinstancia();
+
+        private void FormDatos_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -136,6 +136,7 @@ namespace Sudoku
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormIniciarSesion";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sudoku";
             this.Load += new System.EventHandler(this.FormIniciarSesion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.logoSudoku)).EndInit();

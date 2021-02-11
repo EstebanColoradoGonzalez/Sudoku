@@ -68,7 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\Jugador.cs" />
-    <Compile Include="Clases\Sudoku.cs" />
+    <Compile Include="Clases\SudokuClass.cs" />
     <Compile Include="Clases\SudokuCeldas.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -77,12 +77,6 @@
     </Compile>
     <Compile Include="FormIniciarSesion.Designer.cs">
       <DependentUpon>FormIniciarSesion.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormDatos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormDatos.Designer.cs">
-      <DependentUpon>FormDatos.cs</DependentUpon>
     </Compile>
     <Compile Include="FormHistorial.cs">
       <SubType>Form</SubType>
@@ -98,6 +92,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormHistorial.resx">
+      <DependentUpon>FormHistorial.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormIniciarSesion.resx">
       <DependentUpon>FormIniciarSesion.cs</DependentUpon>
     </EmbeddedResource>
