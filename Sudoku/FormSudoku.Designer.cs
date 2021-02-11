@@ -42,7 +42,6 @@ namespace Sudoku
             this.modoExperto = new System.Windows.Forms.ToolStripMenuItem();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.buttonHistorial = new System.Windows.Forms.Button();
-            this.buttonDatos = new System.Windows.Forms.Button();
             this.buttonFinalizar = new System.Windows.Forms.Button();
             this.buttonReiniciar = new System.Windows.Forms.Button();
             this.textBoxHora = new System.Windows.Forms.TextBox();
@@ -105,14 +104,14 @@ namespace Sudoku
             // modoMuyFacil
             // 
             this.modoMuyFacil.Name = "modoMuyFacil";
-            this.modoMuyFacil.Size = new System.Drawing.Size(180, 24);
+            this.modoMuyFacil.Size = new System.Drawing.Size(156, 24);
             this.modoMuyFacil.Text = "Muy Facil";
             this.modoMuyFacil.Click += new System.EventHandler(this.modoMuyFacil_Click);
             // 
             // modoFacil
             // 
             this.modoFacil.Name = "modoFacil";
-            this.modoFacil.Size = new System.Drawing.Size(180, 24);
+            this.modoFacil.Size = new System.Drawing.Size(156, 24);
             this.modoFacil.Text = "Facil";
             this.modoFacil.Click += new System.EventHandler(this.modoFacil_Click);
             // 
@@ -121,7 +120,7 @@ namespace Sudoku
             this.modoNormal.Checked = true;
             this.modoNormal.CheckState = System.Windows.Forms.CheckState.Checked;
             this.modoNormal.Name = "modoNormal";
-            this.modoNormal.Size = new System.Drawing.Size(180, 24);
+            this.modoNormal.Size = new System.Drawing.Size(156, 24);
             this.modoNormal.Text = "Normal";
             this.modoNormal.ToolTipText = "Modo de Juego Predeterminado";
             this.modoNormal.Click += new System.EventHandler(this.modoNormal_Click);
@@ -129,21 +128,21 @@ namespace Sudoku
             // modoDificil
             // 
             this.modoDificil.Name = "modoDificil";
-            this.modoDificil.Size = new System.Drawing.Size(180, 24);
+            this.modoDificil.Size = new System.Drawing.Size(156, 24);
             this.modoDificil.Text = "Dificil";
             this.modoDificil.Click += new System.EventHandler(this.modoDificil_Click);
             // 
             // modoMuyDificil
             // 
             this.modoMuyDificil.Name = "modoMuyDificil";
-            this.modoMuyDificil.Size = new System.Drawing.Size(180, 24);
+            this.modoMuyDificil.Size = new System.Drawing.Size(156, 24);
             this.modoMuyDificil.Text = "Muy Dificil";
             this.modoMuyDificil.Click += new System.EventHandler(this.modoMuyDificil_Click);
             // 
             // modoExperto
             // 
             this.modoExperto.Name = "modoExperto";
-            this.modoExperto.Size = new System.Drawing.Size(180, 24);
+            this.modoExperto.Size = new System.Drawing.Size(156, 24);
             this.modoExperto.Text = "Experto";
             this.modoExperto.Click += new System.EventHandler(this.modoExperto_Click);
             // 
@@ -157,24 +156,13 @@ namespace Sudoku
             // buttonHistorial
             // 
             this.buttonHistorial.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.buttonHistorial.Location = new System.Drawing.Point(195, 110);
+            this.buttonHistorial.Location = new System.Drawing.Point(58, 110);
             this.buttonHistorial.Name = "buttonHistorial";
-            this.buttonHistorial.Size = new System.Drawing.Size(86, 36);
+            this.buttonHistorial.Size = new System.Drawing.Size(141, 36);
             this.buttonHistorial.TabIndex = 86;
             this.buttonHistorial.Text = "Historial";
             this.buttonHistorial.UseVisualStyleBackColor = false;
             this.buttonHistorial.Click += new System.EventHandler(this.buttonHistorial_Click);
-            // 
-            // buttonDatos
-            // 
-            this.buttonDatos.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.buttonDatos.Location = new System.Drawing.Point(12, 110);
-            this.buttonDatos.Name = "buttonDatos";
-            this.buttonDatos.Size = new System.Drawing.Size(169, 36);
-            this.buttonDatos.TabIndex = 87;
-            this.buttonDatos.Text = "Datos del Jugador";
-            this.buttonDatos.UseVisualStyleBackColor = false;
-            this.buttonDatos.Click += new System.EventHandler(this.buttonDatos_Click);
             // 
             // buttonFinalizar
             // 
@@ -400,7 +388,6 @@ namespace Sudoku
             this.Controls.Add(this.textBoxHora);
             this.Controls.Add(this.buttonReiniciar);
             this.Controls.Add(this.buttonFinalizar);
-            this.Controls.Add(this.buttonDatos);
             this.Controls.Add(this.buttonHistorial);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.logoSudoku);
@@ -434,7 +421,6 @@ namespace Sudoku
         private System.Windows.Forms.ToolStripMenuItem modoExperto;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Button buttonHistorial;
-        private System.Windows.Forms.Button buttonDatos;
         private System.Windows.Forms.Button buttonFinalizar;
         private System.Windows.Forms.Button buttonReiniciar;
         private System.Windows.Forms.TextBox textBoxHora;

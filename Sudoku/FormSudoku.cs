@@ -259,12 +259,6 @@ namespace Sudoku
             mostrarValoresAleatorios(700);
         }
 
-        private void buttonDatos_Click(object sender, EventArgs e)
-        {
-            FormHistorial miforma = new FormHistorial();
-            miforma.ShowDialog();
-        }
-
         private void buttonHistorial_Click(object sender, EventArgs e)
         {
             FormHistorial miforma = new FormHistorial();
