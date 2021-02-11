@@ -229,17 +229,19 @@ namespace Sudoku
         private void buttonJugarSinT_Click(object sender, EventArgs e)
         {
             IniciarNuevoJuego();
-            escrbirFecha();
+            //escribirFecha();
         }
 
-        private void escrbirFecha()
+        private void escribirFecha()
         {
             sudoku.FechaJuego = dateTimePicker1.Value.ToString();
             jugador.Datos[0] = sudoku.FechaJuego;
+
             string fileName = "Usuarios.txt";
             string fileCopia = "CopiaUsuarios.txt";
-            StreamReader reader = new StreamReader(fileName);
+
             StreamWriter writer = File.AppendText(fileCopia);
+            StreamReader reader = new StreamReader(fileName);
 
             while (!reader.EndOfStream)
             {
@@ -249,9 +251,11 @@ namespace Sudoku
                 if(datos[0] == jugador.Usuario)
                 {
                     writer.WriteLine("{0}&{1}", jugador.Usuario, jugador.Datos[0]);
+                    
                     datos[0] = jugador.Usuario;
-                    //datos[1] = jugador.Datos[0];
-                    //cargarDatos(datos);
+                    datos[1] = jugador.Datos[0];
+
+                    cargarDatos(datos);
                 }
                 else
                 {

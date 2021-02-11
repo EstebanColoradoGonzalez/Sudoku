@@ -69,7 +69,11 @@ namespace Sudoku
 
                         reader.Close();
                     }
+
+                    reader.Close();
                 }
+
+                reader.Close();
             }
             else
             {
