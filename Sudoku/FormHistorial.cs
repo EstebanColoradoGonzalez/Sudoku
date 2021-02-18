@@ -18,8 +18,6 @@ namespace Sudoku
         Jugador jugador = Jugador.Getinstancia();
         Archivos archivo = new Archivos();
 
-        private string file = "";
-
         public FormHistorial()
         {
             InitializeComponent();
