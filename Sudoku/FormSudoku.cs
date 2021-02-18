@@ -16,9 +16,9 @@ namespace Sudoku
     public partial class FormSudoku : Form
     {
         Stopwatch oSW = new Stopwatch();
-
         Jugador jugador = Jugador.Getinstancia();
         SudokuClass sudoku = SudokuClass.Getinstancia();
+        Archivos archivo = new Archivos();
 
         public FormSudoku()
         {
@@ -28,14 +28,6 @@ namespace Sudoku
         }
 
         SudokuCeldas[,] celdas = new SudokuCeldas[9, 9];
-
-        private void cargarDatos(string[] datos)
-        {
-            jugador.Usuario = datos[0];
-            jugador.Datos[0] = datos[1];
-        }
-
-
 
         private void crearCeldas()
         {
@@ -228,46 +220,70 @@ namespace Sudoku
 
         private void buttonJugarSinT_Click(object sender, EventArgs e)
         {
+            oSW.Start();
+            timer2.Enabled = true;
             IniciarNuevoJuego();
-            //escribirFecha();
         }
 
-        private void escribirFecha()
+        private string sacarPuntaje()
+        {
+            var celdasIncorrectas = new List<SudokuCeldas>();
+            int incrementador = 0;
+
+            foreach (var celda in celdas)
+            {
+                if (!string.Equals(celda.valor.ToString(), celda.Text))
+                {
+                    celdasIncorrectas.Add(celda);
+
+                    if (celdasIncorrectas.Any())
+                    {
+                        incrementador++;
+                    }
+                }
+            }
+            
+            sudoku.PuntajeJuego = (incrementador * 100) / 81;
+            return sudoku.PuntajeJuego.ToString();
+        }
+
+        private void EscribirDatos(bool estado)
         {
             sudoku.FechaJuego = dateTimePicker1.Value.ToString();
-            jugador.Datos[0] = sudoku.FechaJuego;
 
-            string fileName = "Usuarios.txt";
-            string fileCopia = "CopiaUsuarios.txt";
+            if (modoNormal.Checked)
+                sudoku.ModalidadJuego = "Modo Normal";
+            else if (modoDificil.Checked)
+                sudoku.ModalidadJuego = "Modo Difil";
+            else if (modoMuyDificil.Checked)
+                sudoku.ModalidadJuego = "Modo Muy Dificil";
+            else if (modoFacil.Checked)
+                sudoku.ModalidadJuego = "Modo Facil";
+            else if (modoMuyFacil.Checked)
+                sudoku.ModalidadJuego = "Modo Muy Facil";
+            else if (modoExperto.Checked)
+                sudoku.ModalidadJuego = "Modo Experto";
 
-            StreamWriter writer = File.AppendText(fileCopia);
-            StreamReader reader = new StreamReader(fileName);
-
-            while (!reader.EndOfStream)
+            if (estado == true)
             {
-                string lineaActual = reader.ReadLine();
-                string[] datos = lineaActual.Split('&');
-
-                if(datos[0] == jugador.Usuario)
-                {
-                    writer.WriteLine("{0}&{1}", jugador.Usuario, jugador.Datos[0]);
-                    
-                    datos[0] = jugador.Usuario;
-                    datos[1] = jugador.Datos[0];
-
-                    cargarDatos(datos);
-                }
-                else
-                {
-                    writer.WriteLine(lineaActual);
-                }
-                
+                sudoku.EstadoJuego = "Ganado";
+            }
+            else
+            {
+                sudoku.EstadoJuego = "Perdido";
             }
 
-            reader.Close();
-            writer.Close();
+            oSW.Reset();
 
-            File.Replace(fileCopia, fileName, null, true);
+            sudoku.DuracionJuego = textBoxHora.Text + ":" + textBoxMinuto.Text + ":" + textBoxSegundo.Text;
+
+            jugador.Datos[0] = sudoku.FechaJuego;
+            jugador.Datos[1] = sudoku.ModalidadJuego;
+            jugador.Datos[2] = sudoku.EstadoJuego;
+            jugador.Datos[3] = sudoku.DuracionJuego;
+            jugador.Datos[4] = sacarPuntaje();
+
+            archivo.escribirArchivoPartidas(jugador);
         }
 
         private void marcarCasillasMalas()
@@ -291,6 +307,7 @@ namespace Sudoku
         private void buttonFinalizar_Click(object sender, EventArgs e)
         {
             var celdasIncorrectas = new List<SudokuCeldas>();
+            bool estado;
 
             foreach (var celda in celdas)
             {
@@ -304,11 +321,15 @@ namespace Sudoku
             {
                 celdasIncorrectas.ForEach(x => x.ForeColor = Color.Red);
                 MessageBox.Show("Has Perdido Socio");
+                estado = false;
             }
             else
             {
                 MessageBox.Show("Has Ganado Socio");
+                estado = true;
             }
+
+            EscribirDatos(estado);
         }
 
         private void buttonReiniciar_Click(object sender, EventArgs e)
@@ -399,6 +420,30 @@ namespace Sudoku
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void textBoxH_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxMinuto_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            TimeSpan ts = new TimeSpan(0, 0, 0, 0, (int)oSW.ElapsedMilliseconds);
+
+            textBoxHora.Text = ts.Hours.ToString().Length < 2 ? "0" + ts.Hours.ToString() : ts.Hours.ToString();
+            textBoxMinuto.Text = ts.Minutes.ToString().Length < 2 ? "0" + ts.Minutes.ToString() : ts.Minutes.ToString();
+            textBoxSegundo.Text = ts.Seconds.ToString().Length < 2 ? "0" + ts.Seconds.ToString() : ts.Seconds.ToString();
+        }
+
+        private void labelUsuario_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

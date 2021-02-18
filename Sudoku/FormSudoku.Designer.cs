@@ -62,6 +62,7 @@ namespace Sudoku
             this.buttonResultado = new System.Windows.Forms.Button();
             this.labelBienvenido = new System.Windows.Forms.Label();
             this.labelUsuario = new System.Windows.Forms.Label();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.logoSudoku)).BeginInit();
             this.menu1.SuspendLayout();
             this.SuspendLayout();
@@ -104,14 +105,14 @@ namespace Sudoku
             // modoMuyFacil
             // 
             this.modoMuyFacil.Name = "modoMuyFacil";
-            this.modoMuyFacil.Size = new System.Drawing.Size(156, 24);
+            this.modoMuyFacil.Size = new System.Drawing.Size(180, 24);
             this.modoMuyFacil.Text = "Muy Facil";
             this.modoMuyFacil.Click += new System.EventHandler(this.modoMuyFacil_Click);
             // 
             // modoFacil
             // 
             this.modoFacil.Name = "modoFacil";
-            this.modoFacil.Size = new System.Drawing.Size(156, 24);
+            this.modoFacil.Size = new System.Drawing.Size(180, 24);
             this.modoFacil.Text = "Facil";
             this.modoFacil.Click += new System.EventHandler(this.modoFacil_Click);
             // 
@@ -120,7 +121,7 @@ namespace Sudoku
             this.modoNormal.Checked = true;
             this.modoNormal.CheckState = System.Windows.Forms.CheckState.Checked;
             this.modoNormal.Name = "modoNormal";
-            this.modoNormal.Size = new System.Drawing.Size(156, 24);
+            this.modoNormal.Size = new System.Drawing.Size(180, 24);
             this.modoNormal.Text = "Normal";
             this.modoNormal.ToolTipText = "Modo de Juego Predeterminado";
             this.modoNormal.Click += new System.EventHandler(this.modoNormal_Click);
@@ -128,21 +129,21 @@ namespace Sudoku
             // modoDificil
             // 
             this.modoDificil.Name = "modoDificil";
-            this.modoDificil.Size = new System.Drawing.Size(156, 24);
+            this.modoDificil.Size = new System.Drawing.Size(180, 24);
             this.modoDificil.Text = "Dificil";
             this.modoDificil.Click += new System.EventHandler(this.modoDificil_Click);
             // 
             // modoMuyDificil
             // 
             this.modoMuyDificil.Name = "modoMuyDificil";
-            this.modoMuyDificil.Size = new System.Drawing.Size(156, 24);
+            this.modoMuyDificil.Size = new System.Drawing.Size(180, 24);
             this.modoMuyDificil.Text = "Muy Dificil";
             this.modoMuyDificil.Click += new System.EventHandler(this.modoMuyDificil_Click);
             // 
             // modoExperto
             // 
             this.modoExperto.Name = "modoExperto";
-            this.modoExperto.Size = new System.Drawing.Size(156, 24);
+            this.modoExperto.Size = new System.Drawing.Size(180, 24);
             this.modoExperto.Text = "Experto";
             this.modoExperto.Click += new System.EventHandler(this.modoExperto_Click);
             // 
@@ -208,6 +209,7 @@ namespace Sudoku
             this.textBoxMinuto.TabIndex = 91;
             this.textBoxMinuto.Text = "00";
             this.textBoxMinuto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxMinuto.TextChanged += new System.EventHandler(this.textBoxMinuto_TextChanged);
             // 
             // textBoxSegundo
             // 
@@ -294,6 +296,7 @@ namespace Sudoku
             this.textBoxH.TabIndex = 99;
             this.textBoxH.Text = "00";
             this.textBoxH.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxH.TextChanged += new System.EventHandler(this.textBoxH_TextChanged);
             // 
             // textBoxM
             // 
@@ -363,6 +366,11 @@ namespace Sudoku
             this.labelUsuario.Size = new System.Drawing.Size(65, 19);
             this.labelUsuario.TabIndex = 107;
             this.labelUsuario.Text = "Usuario";
+            this.labelUsuario.Click += new System.EventHandler(this.labelUsuario_Click);
+            // 
+            // timer2
+            // 
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
             // FormSudoku
             // 
@@ -442,6 +450,7 @@ namespace Sudoku
         private System.Windows.Forms.Button buttonResultado;
         private System.Windows.Forms.Label labelBienvenido;
         private System.Windows.Forms.Label labelUsuario;
+        private System.Windows.Forms.Timer timer2;
     }
 }
 

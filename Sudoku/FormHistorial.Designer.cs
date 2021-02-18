@@ -34,6 +34,7 @@ namespace Sudoku
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.labelUsuario = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -65,6 +66,7 @@ namespace Sudoku
             this.labelUsuario.Size = new System.Drawing.Size(65, 19);
             this.labelUsuario.TabIndex = 2;
             this.labelUsuario.Text = "Usuario";
+            this.labelUsuario.Click += new System.EventHandler(this.labelUsuario_Click);
             // 
             // dataGridView1
             // 
@@ -74,6 +76,10 @@ namespace Sudoku
             this.dataGridView1.Size = new System.Drawing.Size(351, 376);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // FormHistorial
             // 
@@ -103,5 +109,6 @@ namespace Sudoku
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label labelUsuario;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

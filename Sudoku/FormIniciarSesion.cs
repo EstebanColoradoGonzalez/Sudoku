@@ -26,54 +26,26 @@ namespace Sudoku
 
         Jugador jugador = Jugador.Getinstancia();
 
+        Archivos archivo = new Archivos();
+
         private void InciarSesion()
         {
             int contador = 0;
+
             if (textBoxUsuario.Text != "")
             {
-                string fileName = "Usuarios.txt";
                 jugador.Usuario = textBoxUsuario.Text.ToLower();
 
-                StreamReader reader = File.OpenText(fileName);
-                string lineaActual = reader.ReadLine();
-
-                string[] datos = lineaActual.Split('&');
-
-                int finalizar = 0;
-
-                if(jugador.Usuario != datos[0])
+                if(jugador.Usuario != archivo.leerArchivoUsuarios())
                 {
-                    reader.Close();
-                    StreamWriter writer = File.AppendText(fileName);
-                    writer.WriteLine("{0}", jugador.Usuario);
-                    datos[0] = jugador.Usuario;
-                    cargarDatos(datos);
+                    archivo.escribirArchivoUsuarios(jugador);
                     FormSudoku miforma = new FormSudoku();
                     miforma.ShowDialog();
-                    writer.Close();
-
                 }
                 else
                 {
-                    while (finalizar == 0 && !reader.EndOfStream)
-                    {
-
-                        if (datos[0] == jugador.Usuario)
-                        {
-                            reader.Close();
-                            FormSudoku miforma = new FormSudoku();
-                            miforma.ShowDialog();
-                            cargarDatos(datos);
-                            finalizar++;
-                        }
-
-                        reader.Close();
-                    }
-
-                    reader.Close();
+                    archivo.recorrerArchivoUsuarios(jugador);
                 }
-
-                reader.Close();
             }
             else
             {

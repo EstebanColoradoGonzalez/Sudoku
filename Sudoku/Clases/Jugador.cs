@@ -21,7 +21,7 @@ namespace Sudoku.Clases
         }
 
         private string usuario;
-        private string[] datos = new string[4];
+        private string[] datos = new string[6];
 
         public string Usuario
         {

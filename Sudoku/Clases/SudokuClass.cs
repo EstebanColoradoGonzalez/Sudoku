@@ -24,9 +24,10 @@ namespace Sudoku.Clases
         }
         private string fechaJuego;
         private string modalidadJuego;
-        private bool estadoJuego;
+        private string estadoJuego;
         private string duracionJuego;
         private double puntajeJuego;
+        private Jugador jugador;
 
         public string FechaJuego
         {
@@ -48,7 +49,7 @@ namespace Sudoku.Clases
             }
         }
 
-        public bool EstadoJuego
+        public string EstadoJuego
         {
             get { return estadoJuego; }
             set
@@ -76,21 +77,6 @@ namespace Sudoku.Clases
                 this.modalidadJuego = value;
 
             }
-        }
-
-        public void elegirModalidad()
-        {
-
-        }
-
-        public void consultarHistorial()
-        {
-
-        }
-
-        public void jugar()
-        {
-
         }
     }
 }
