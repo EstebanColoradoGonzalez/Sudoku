@@ -25,7 +25,7 @@ namespace Sudoku.Clases
         public void escribirArchivoPartidas(Jugador jugador)
         {
             StreamWriter writer = File.AppendText(fileNameP);
-            writer.WriteLine("{0}&{1}&{2}&{3}&{4}&{5}", jugador.Datos[0], jugador.Datos[1], jugador.Datos[2], jugador.Datos[3], jugador.Datos[4], jugador.Usuario);
+            writer.WriteLine("{0}&{1}&{2}&{3}&{4}&{5}", jugador.Datos[0], jugador.Datos[1], jugador.Datos[2], jugador.Datos[3], jugador.Datos[4], jugador.Datos[5]);
             writer.Close();
         }
 

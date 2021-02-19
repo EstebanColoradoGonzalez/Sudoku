@@ -14,8 +14,7 @@ namespace Sudoku
 {
     public partial class FormIniciarSesion : Form
     {
-        Jugador jugador = Jugador.Getinstancia();
-        Archivos archivo = new Archivos();
+        SudokuClass sudoku = SudokuClass.Getinstancia();
 
         public FormIniciarSesion()
         {
@@ -27,35 +26,6 @@ namespace Sudoku
             
         }
 
-        private void InciarSesion()
-        {
-            int contador = 0;
-
-            if (textBoxUsuario.Text != "")
-            {
-                jugador.Usuario = textBoxUsuario.Text.ToLower();
-
-                if(jugador.Usuario != archivo.leerArchivoUsuarios())
-                {
-                    archivo.escribirArchivoUsuarios(jugador);
-                    FormSudoku miforma = new FormSudoku();
-                    miforma.ShowDialog();
-                }
-                else
-                {
-                    archivo.recorrerArchivoUsuarios(jugador);
-                }
-            }
-            else
-            {
-                contador++;
-                if (contador == 0)
-                {
-                    MessageBox.Show("Debe Escribir un Usuario", "Informacion del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-        }
-
         private void textBoxUsuario_TextChanged(object sender, EventArgs e)
         {
 
@@ -63,7 +33,7 @@ namespace Sudoku
 
         private void buttonIniciarJuego_Click(object sender, EventArgs e)
         {
-            InciarSesion();
+            sudoku.inciarSesion(textBoxUsuario);
         }
     }
 }

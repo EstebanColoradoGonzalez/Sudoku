@@ -105,14 +105,14 @@ namespace Sudoku
             // modoMuyFacil
             // 
             this.modoMuyFacil.Name = "modoMuyFacil";
-            this.modoMuyFacil.Size = new System.Drawing.Size(180, 24);
+            this.modoMuyFacil.Size = new System.Drawing.Size(156, 24);
             this.modoMuyFacil.Text = "Muy Facil";
             this.modoMuyFacil.Click += new System.EventHandler(this.modoMuyFacil_Click);
             // 
             // modoFacil
             // 
             this.modoFacil.Name = "modoFacil";
-            this.modoFacil.Size = new System.Drawing.Size(180, 24);
+            this.modoFacil.Size = new System.Drawing.Size(156, 24);
             this.modoFacil.Text = "Facil";
             this.modoFacil.Click += new System.EventHandler(this.modoFacil_Click);
             // 
@@ -121,7 +121,7 @@ namespace Sudoku
             this.modoNormal.Checked = true;
             this.modoNormal.CheckState = System.Windows.Forms.CheckState.Checked;
             this.modoNormal.Name = "modoNormal";
-            this.modoNormal.Size = new System.Drawing.Size(180, 24);
+            this.modoNormal.Size = new System.Drawing.Size(156, 24);
             this.modoNormal.Text = "Normal";
             this.modoNormal.ToolTipText = "Modo de Juego Predeterminado";
             this.modoNormal.Click += new System.EventHandler(this.modoNormal_Click);
@@ -129,21 +129,21 @@ namespace Sudoku
             // modoDificil
             // 
             this.modoDificil.Name = "modoDificil";
-            this.modoDificil.Size = new System.Drawing.Size(180, 24);
+            this.modoDificil.Size = new System.Drawing.Size(156, 24);
             this.modoDificil.Text = "Dificil";
             this.modoDificil.Click += new System.EventHandler(this.modoDificil_Click);
             // 
             // modoMuyDificil
             // 
             this.modoMuyDificil.Name = "modoMuyDificil";
-            this.modoMuyDificil.Size = new System.Drawing.Size(180, 24);
+            this.modoMuyDificil.Size = new System.Drawing.Size(156, 24);
             this.modoMuyDificil.Text = "Muy Dificil";
             this.modoMuyDificil.Click += new System.EventHandler(this.modoMuyDificil_Click);
             // 
             // modoExperto
             // 
             this.modoExperto.Name = "modoExperto";
-            this.modoExperto.Size = new System.Drawing.Size(180, 24);
+            this.modoExperto.Size = new System.Drawing.Size(156, 24);
             this.modoExperto.Text = "Experto";
             this.modoExperto.Click += new System.EventHandler(this.modoExperto_Click);
             // 
