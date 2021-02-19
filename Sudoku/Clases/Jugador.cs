@@ -9,6 +9,8 @@ namespace Sudoku.Clases
     class Jugador
     {
         private static Jugador _instancia;
+        private string usuario;
+        private string[] datos = new string[6];
 
         public static Jugador Getinstancia()
         {
@@ -19,9 +21,6 @@ namespace Sudoku.Clases
             else
                 return _instancia;
         }
-
-        private string usuario;
-        private string[] datos = new string[6];
 
         public string Usuario
         {

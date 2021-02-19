@@ -14,6 +14,9 @@ namespace Sudoku
 {
     public partial class FormIniciarSesion : Form
     {
+        Jugador jugador = Jugador.Getinstancia();
+        Archivos archivo = new Archivos();
+
         public FormIniciarSesion()
         {
             InitializeComponent();
@@ -23,10 +26,6 @@ namespace Sudoku
         {
             
         }
-
-        Jugador jugador = Jugador.Getinstancia();
-
-        Archivos archivo = new Archivos();
 
         private void InciarSesion()
         {
@@ -55,11 +54,6 @@ namespace Sudoku
                     MessageBox.Show("Debe Escribir un Usuario", "Informacion del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-        }
-
-        private void cargarDatos(string[] datos)
-        {
-            jugador.Usuario = datos[0];
         }
 
         private void textBoxUsuario_TextChanged(object sender, EventArgs e)

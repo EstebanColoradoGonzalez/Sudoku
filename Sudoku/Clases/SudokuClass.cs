@@ -12,7 +12,13 @@ namespace Sudoku.Clases
     class SudokuClass
     {
         private static SudokuClass _instancia;
-
+        private Jugador jugador;
+        private string fechaJuego;
+        private string modalidadJuego;
+        private string estadoJuego;
+        private string duracionJuego;
+        private double puntajeJuego;
+        
         public static SudokuClass Getinstancia()
         {
             if (_instancia == null)
@@ -22,12 +28,6 @@ namespace Sudoku.Clases
             else
                 return _instancia;
         }
-        private string fechaJuego;
-        private string modalidadJuego;
-        private string estadoJuego;
-        private string duracionJuego;
-        private double puntajeJuego;
-        private Jugador jugador;
 
         public string FechaJuego
         {
@@ -75,7 +75,15 @@ namespace Sudoku.Clases
             set
             {
                 this.modalidadJuego = value;
+            }
+        }
 
+        public Jugador Jugador
+        {
+            get { return jugador; }
+            set
+            {
+                this.jugador = value;
             }
         }
     }
