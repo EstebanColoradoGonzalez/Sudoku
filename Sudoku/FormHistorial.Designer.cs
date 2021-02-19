@@ -34,7 +34,6 @@ namespace Sudoku
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.labelUsuario = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -42,7 +41,7 @@ namespace Sudoku
             // labelU
             // 
             this.labelU.AutoSize = true;
-            this.labelU.Location = new System.Drawing.Point(117, 83);
+            this.labelU.Location = new System.Drawing.Point(254, 83);
             this.labelU.Name = "labelU";
             this.labelU.Size = new System.Drawing.Size(69, 19);
             this.labelU.TabIndex = 0;
@@ -52,7 +51,7 @@ namespace Sudoku
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(117, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(258, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(140, 58);
             this.pictureBox1.TabIndex = 1;
@@ -61,7 +60,7 @@ namespace Sudoku
             // labelUsuario
             // 
             this.labelUsuario.AutoSize = true;
-            this.labelUsuario.Location = new System.Drawing.Point(192, 83);
+            this.labelUsuario.Location = new System.Drawing.Point(333, 83);
             this.labelUsuario.Name = "labelUsuario";
             this.labelUsuario.Size = new System.Drawing.Size(65, 19);
             this.labelUsuario.TabIndex = 2;
@@ -70,30 +69,32 @@ namespace Sudoku
             // 
             // dataGridView1
             // 
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 105);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(351, 376);
+            this.dataGridView1.Size = new System.Drawing.Size(644, 376);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // FormHistorial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(375, 493);
+            this.ClientSize = new System.Drawing.Size(668, 493);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.labelUsuario);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.labelU);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "FormHistorial";
+            this.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Historial de Partidas";
             this.Load += new System.EventHandler(this.FormDatos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -109,6 +110,5 @@ namespace Sudoku
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label labelUsuario;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

@@ -1,4 +1,5 @@
-Fecha&Modalidad&Estado&Tiempo&Jugador
+Fecha&Modalidad&Estado&Tiempo&Puntaje&Jugador
 17/2/2021 22:49:36&Modo Normal&Perdido&00:00:27&0&esteban
 17/2/2021 22:59:13&Modo Normal&Perdido&00:00:33&0&esteban
 17/2/2021 23:00:44&Modo Normal&Perdido&00:00:27&51&esteban
+19/2/2021 15:42:19&Modo Normal&Perdido&00:00:00&51&esteban

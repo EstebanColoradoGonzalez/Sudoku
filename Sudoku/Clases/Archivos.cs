@@ -71,24 +71,28 @@ namespace Sudoku.Clases
 
         public void leerArchivo(DataGridView tabla, char caracter)
         {
-            StreamReader reader = new StreamReader(fileName);
+            StreamReader reader = new StreamReader(fileNameP);
             string lineaActual = "";
             int fila = 0;
             tabla.Rows.Clear();
             tabla.AllowUserToAddRows = false;
             do
             {
+                lineaActual = reader.ReadLine();
+
                 if (lineaActual != null)
                 {
-                    lineaActual = reader.ReadLine();
-                    tabla.ColumnCount = lineaActual.Split(caracter).Length;
-                    nombrarTitulos(tabla, lineaActual.Split(caracter));
-                    fila += 1;
-                }
-                else
-                {
-                    agregarFilaDataGridView(tabla, lineaActual, caracter, fila);
-                    fila += 1;
+                    if (fila == 0)
+                    {
+                        tabla.ColumnCount = lineaActual.Split(caracter).Length;
+                        nombrarTitulos(tabla, lineaActual.Split(caracter));
+                        fila += 1;
+                    }
+                    else
+                    {
+                        agregarFilaDataGridView(tabla, lineaActual, caracter, fila);
+                        fila += 1;
+                    }
                 }
             } while (!(lineaActual == null));
             reader.Close();
@@ -114,7 +118,6 @@ namespace Sudoku.Clases
         {
             try
             {
-
                 if (!string.IsNullOrEmpty(fileNameP))
                 {
                     this.leerArchivo(dataGridView1, '&');
